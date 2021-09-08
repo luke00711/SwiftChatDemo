@@ -53,12 +53,7 @@
 		2FEE63B91FBAD13A006E3C85 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FEE63B71FBAD13A006E3C85 /* LaunchScreen.storyboard */; };
 		2FEE63C41FBAD13B006E3C85 /* SwiftChatXIBDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEE63C31FBAD13B006E3C85 /* SwiftChatXIBDemoTests.swift */; };
 		2FEE63CF1FBAD13B006E3C85 /* SwiftChatXIBDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEE63CE1FBAD13B006E3C85 /* SwiftChatXIBDemoUITests.swift */; };
-		2FEE63DE1FBAD1F7006E3C85 /* MsgTimeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEE63DC1FBAD1F7006E3C85 /* MsgTimeTableViewCell.swift */; };
 		2FEE63DF1FBAD1F7006E3C85 /* MsgTimeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2FEE63DD1FBAD1F7006E3C85 /* MsgTimeTableViewCell.xib */; };
-		2FEE63E81FBAD2BB006E3C85 /* MsgOutTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEE63E61FBAD2BB006E3C85 /* MsgOutTableViewCell.swift */; };
-		2FEE63E91FBAD2BB006E3C85 /* MsgOutTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2FEE63E71FBAD2BB006E3C85 /* MsgOutTableViewCell.xib */; };
-		2FEE63EC1FBAD2CD006E3C85 /* MsgInTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEE63EA1FBAD2CD006E3C85 /* MsgInTableViewCell.swift */; };
-		2FEE63ED1FBAD2CD006E3C85 /* MsgInTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2FEE63EB1FBAD2CD006E3C85 /* MsgInTableViewCell.xib */; };
 		2FEE63F01FBAD527006E3C85 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEE63EF1FBAD527006E3C85 /* Message.swift */; };
 /* End PBXBuildFile section */
 
@@ -132,12 +127,7 @@
 		2FEE63CA1FBAD13B006E3C85 /* SwiftChatXIBDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftChatXIBDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FEE63CE1FBAD13B006E3C85 /* SwiftChatXIBDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftChatXIBDemoUITests.swift; sourceTree = "<group>"; };
 		2FEE63D01FBAD13B006E3C85 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2FEE63DC1FBAD1F7006E3C85 /* MsgTimeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MsgTimeTableViewCell.swift; sourceTree = "<group>"; };
 		2FEE63DD1FBAD1F7006E3C85 /* MsgTimeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MsgTimeTableViewCell.xib; sourceTree = "<group>"; };
-		2FEE63E61FBAD2BB006E3C85 /* MsgOutTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MsgOutTableViewCell.swift; sourceTree = "<group>"; };
-		2FEE63E71FBAD2BB006E3C85 /* MsgOutTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MsgOutTableViewCell.xib; sourceTree = "<group>"; };
-		2FEE63EA1FBAD2CD006E3C85 /* MsgInTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MsgInTableViewCell.swift; sourceTree = "<group>"; };
-		2FEE63EB1FBAD2CD006E3C85 /* MsgInTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MsgInTableViewCell.xib; sourceTree = "<group>"; };
 		2FEE63EF1FBAD527006E3C85 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -178,9 +168,6 @@
 		04A737CA26E762DA009423E1 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				2FEE63DC1FBAD1F7006E3C85 /* MsgTimeTableViewCell.swift */,
-				2FEE63E61FBAD2BB006E3C85 /* MsgOutTableViewCell.swift */,
-				2FEE63EA1FBAD2CD006E3C85 /* MsgInTableViewCell.swift */,
 				04A737F726E8349D009423E1 /* MessageCell.swift */,
 				04A737F926E83A42009423E1 /* MessageContent.swift */,
 			);
@@ -305,8 +292,6 @@
 			isa = PBXGroup;
 			children = (
 				2FEE63DD1FBAD1F7006E3C85 /* MsgTimeTableViewCell.xib */,
-				2FEE63E71FBAD2BB006E3C85 /* MsgOutTableViewCell.xib */,
-				2FEE63EB1FBAD2CD006E3C85 /* MsgInTableViewCell.xib */,
 			);
 			path = xib;
 			sourceTree = "<group>";
@@ -418,11 +403,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2FEE63ED1FBAD2CD006E3C85 /* MsgInTableViewCell.xib in Resources */,
 				2FEE63B91FBAD13A006E3C85 /* LaunchScreen.storyboard in Resources */,
 				2FEE63B61FBAD13A006E3C85 /* Assets.xcassets in Resources */,
 				2FEE63DF1FBAD1F7006E3C85 /* MsgTimeTableViewCell.xib in Resources */,
-				2FEE63E91FBAD2BB006E3C85 /* MsgOutTableViewCell.xib in Resources */,
 				2FEE63B11FBAD13A006E3C85 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -451,7 +434,6 @@
 				04A7381C26E841AA009423E1 /* ImageView.swift in Sources */,
 				04A7381826E841AA009423E1 /* Cons.swift in Sources */,
 				04A7381E26E841AA009423E1 /* Font.swift in Sources */,
-				2FEE63EC1FBAD2CD006E3C85 /* MsgInTableViewCell.swift in Sources */,
 				04A7381226E841AA009423E1 /* __Private__Implementations__.swift in Sources */,
 				04A7381B26E841AA009423E1 /* TextView.swift in Sources */,
 				2FEE63AE1FBAD13A006E3C85 /* ViewController.swift in Sources */,
@@ -483,10 +465,8 @@
 				04A737E826E831FB009423E1 /* JXPhotoBrowserPageIndicator.swift in Sources */,
 				2FEE63AC1FBAD13A006E3C85 /* AppDelegate.swift in Sources */,
 				04A7381326E841AA009423E1 /* Alert.swift in Sources */,
-				2FEE63DE1FBAD1F7006E3C85 /* MsgTimeTableViewCell.swift in Sources */,
 				04A7381F26E841AA009423E1 /* Button.swift in Sources */,
 				04A7381926E841AA009423E1 /* CPKStackView.swift in Sources */,
-				2FEE63E81FBAD2BB006E3C85 /* MsgOutTableViewCell.swift in Sources */,
 				04A7380F26E841AA009423E1 /* Label.swift in Sources */,
 				04A737FA26E83A42009423E1 /* MessageContent.swift in Sources */,
 				04A7381D26E841AA009423E1 /* StaticTable.swift in Sources */,
