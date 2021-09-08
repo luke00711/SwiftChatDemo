@@ -45,6 +45,7 @@
 		04A7381F26E841AA009423E1 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A7380C26E841AA009423E1 /* Button.swift */; };
 		04A7382026E841AA009423E1 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A7380D26E841AA009423E1 /* Color.swift */; };
 		04A7382126E841AA009423E1 /* Img.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A7380E26E841AA009423E1 /* Img.swift */; };
+		04A7382326E88F6E009423E1 /* MsgTimeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A7382226E88F6D009423E1 /* MsgTimeTableViewCell.swift */; };
 		2FEE63AC1FBAD13A006E3C85 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEE63AB1FBAD13A006E3C85 /* AppDelegate.swift */; };
 		2FEE63AE1FBAD13A006E3C85 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEE63AD1FBAD13A006E3C85 /* ViewController.swift */; };
 		2FEE63B11FBAD13A006E3C85 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FEE63AF1FBAD13A006E3C85 /* Main.storyboard */; };
@@ -113,6 +114,7 @@
 		04A7380C26E841AA009423E1 /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		04A7380D26E841AA009423E1 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		04A7380E26E841AA009423E1 /* Img.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Img.swift; sourceTree = "<group>"; };
+		04A7382226E88F6D009423E1 /* MsgTimeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MsgTimeTableViewCell.swift; sourceTree = "<group>"; };
 		2FEE63A81FBAD13A006E3C85 /* SwiftChatXIBDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftChatXIBDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FEE63AB1FBAD13A006E3C85 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2FEE63AD1FBAD13A006E3C85 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 		04A737CA26E762DA009423E1 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				04A7382226E88F6D009423E1 /* MsgTimeTableViewCell.swift */,
 				04A737F726E8349D009423E1 /* MessageCell.swift */,
 				04A737F926E83A42009423E1 /* MessageContent.swift */,
 			);
@@ -440,6 +443,7 @@
 				04A7381626E841AA009423E1 /* BarButton.swift in Sources */,
 				04A737F526E831FB009423E1 /* JXPhotoBrowserLog.swift in Sources */,
 				04A737D426E7CC54009423E1 /* ChatListViewController.swift in Sources */,
+				04A7382326E88F6E009423E1 /* MsgTimeTableViewCell.swift in Sources */,
 				04A737EE26E831FB009423E1 /* JXPhotoBrowserCell.swift in Sources */,
 				04A737F026E831FB009423E1 /* JXPhotoBrowserZoomAnimator.swift in Sources */,
 				04A737EF26E831FB009423E1 /* JXPhotoBrowserNumberPageIndicator.swift in Sources */,
