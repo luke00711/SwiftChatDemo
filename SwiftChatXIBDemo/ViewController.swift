@@ -17,6 +17,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
     var conv : Conversation?{
         willSet{
+           
             title=newValue?.name
             
         }

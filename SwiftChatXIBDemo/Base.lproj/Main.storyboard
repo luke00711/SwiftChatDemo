@@ -106,7 +106,7 @@
         <scene sceneID="RU2-RA-qaf">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="njK-tI-fRT" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="聊天记录" id="CKW-LX-9Il"/>
+                    <tabBarItem key="tabBarItem" title="聊天记录" image="we_unsel" selectedImage="we_unsel" id="CKW-LX-9Il"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" translucent="NO" id="oMY-mn-8FZ">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -131,13 +131,38 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="ej4-vM-mNQ">
-                                <rect key="frame" x="0.0" y="49.5" width="414" height="43.5"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="55" id="ej4-vM-mNQ" customClass="ConversationListCell" customModule="SwiftChatXIBDemo" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="49.5" width="414" height="55"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ej4-vM-mNQ" id="tfH-vN-jph">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="55"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="66n-60-k0O">
+                                            <rect key="frame" x="10" y="5" width="45" height="45"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ofm-93-Ga2">
+                                            <rect key="frame" x="63" y="5" width="126" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z6S-nR-ZhA">
+                                            <rect key="frame" x="63" y="29.5" width="126" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" systemColor="opaqueSeparatorColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="icon" destination="66n-60-k0O" id="LAI-Z9-zQq"/>
+                                    <outlet property="name" destination="ofm-93-Ga2" id="yHf-hG-kEV"/>
+                                    <outlet property="title" destination="Z6S-nR-ZhA" id="UaA-a1-P0S"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -149,23 +174,42 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W7d-Ps-zyp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="409" y="113"/>
+            <point key="canvasLocation" x="408.69565217391306" y="112.5"/>
         </scene>
-        <!--Item 2-->
+        <!--视频-->
         <scene sceneID="Qox-kR-9hI">
             <objects>
-                <viewController id="fMv-AR-cEt" sceneMemberID="viewController">
+                <viewController id="fMv-AR-cEt" customClass="WebviewController" customModule="SwiftChatXIBDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6zI-82-CY3">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vz4-kz-3yi">
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="B1U-Yk-ne3"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="B1U-Yk-ne3" firstAttribute="trailing" secondItem="Vz4-kz-3yi" secondAttribute="trailing" id="DXS-vo-kyl"/>
+                            <constraint firstItem="B1U-Yk-ne3" firstAttribute="top" secondItem="Vz4-kz-3yi" secondAttribute="top" id="MWR-0W-UFS"/>
+                            <constraint firstItem="Vz4-kz-3yi" firstAttribute="leading" secondItem="B1U-Yk-ne3" secondAttribute="leading" id="bUw-IO-fll"/>
+                            <constraint firstItem="B1U-Yk-ne3" firstAttribute="bottom" secondItem="Vz4-kz-3yi" secondAttribute="bottom" id="pb5-9X-pvm"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="QG9-09-fga"/>
+                    <tabBarItem key="tabBarItem" title="视频" image="视频" selectedImage="视频" id="QG9-09-fga"/>
+                    <connections>
+                        <outlet property="web" destination="Vz4-kz-3yi" id="195-2E-vtL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iz5-mL-UZk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-352" y="951"/>
+            <point key="canvasLocation" x="-352.17391304347831" y="950.89285714285711"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="rEF-L3-mWR">
@@ -187,11 +231,16 @@
         </scene>
     </scenes>
     <resources>
+        <image name="we_unsel" width="40" height="40"/>
+        <image name="视频" width="30" height="30"/>
         <systemColor name="groupTableViewBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="linkColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

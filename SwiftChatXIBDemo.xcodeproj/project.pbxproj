@@ -46,6 +46,11 @@
 		04A7382026E841AA009423E1 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A7380D26E841AA009423E1 /* Color.swift */; };
 		04A7382126E841AA009423E1 /* Img.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A7380E26E841AA009423E1 /* Img.swift */; };
 		04A7382326E88F6E009423E1 /* MsgTimeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A7382226E88F6D009423E1 /* MsgTimeTableViewCell.swift */; };
+		04A7382626E8A1E3009423E1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A7382526E8A1E3009423E1 /* User.swift */; };
+		04A7382926E8A6E7009423E1 /* IVExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A7382826E8A6E7009423E1 /* IVExtension.swift */; };
+		04A7382B26E8AB81009423E1 /* ConversationListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A7382A26E8AB81009423E1 /* ConversationListCell.swift */; };
+		04A7382F26E8B2FA009423E1 /* WebviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A7382E26E8B2FA009423E1 /* WebviewController.swift */; };
+		04A7383226E8B3BB009423E1 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04A7383126E8B3BB009423E1 /* WebKit.framework */; };
 		2FEE63AC1FBAD13A006E3C85 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEE63AB1FBAD13A006E3C85 /* AppDelegate.swift */; };
 		2FEE63AE1FBAD13A006E3C85 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEE63AD1FBAD13A006E3C85 /* ViewController.swift */; };
 		2FEE63B11FBAD13A006E3C85 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FEE63AF1FBAD13A006E3C85 /* Main.storyboard */; };
@@ -115,6 +120,11 @@
 		04A7380D26E841AA009423E1 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		04A7380E26E841AA009423E1 /* Img.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Img.swift; sourceTree = "<group>"; };
 		04A7382226E88F6D009423E1 /* MsgTimeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MsgTimeTableViewCell.swift; sourceTree = "<group>"; };
+		04A7382526E8A1E3009423E1 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		04A7382826E8A6E7009423E1 /* IVExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IVExtension.swift; sourceTree = "<group>"; };
+		04A7382A26E8AB81009423E1 /* ConversationListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationListCell.swift; sourceTree = "<group>"; };
+		04A7382E26E8B2FA009423E1 /* WebviewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebviewController.swift; sourceTree = "<group>"; };
+		04A7383126E8B3BB009423E1 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		2FEE63A81FBAD13A006E3C85 /* SwiftChatXIBDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftChatXIBDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FEE63AB1FBAD13A006E3C85 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2FEE63AD1FBAD13A006E3C85 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -138,6 +148,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04A7383226E8B3BB009423E1 /* WebKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -163,6 +174,7 @@
 			children = (
 				2FEE63EF1FBAD527006E3C85 /* Message.swift */,
 				04A737D526E7D43B009423E1 /* Conversation.swift */,
+				04A7382526E8A1E3009423E1 /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -173,6 +185,7 @@
 				04A7382226E88F6D009423E1 /* MsgTimeTableViewCell.swift */,
 				04A737F726E8349D009423E1 /* MessageCell.swift */,
 				04A737F926E83A42009423E1 /* MessageContent.swift */,
+				04A7382A26E8AB81009423E1 /* ConversationListCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -234,6 +247,22 @@
 			path = Cupcake;
 			sourceTree = "<group>";
 		};
+		04A7382726E8A6D7009423E1 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				04A7382826E8A6E7009423E1 /* IVExtension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		04A7383026E8B3BB009423E1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				04A7383126E8B3BB009423E1 /* WebKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		2FEE639F1FBAD13A006E3C85 = {
 			isa = PBXGroup;
 			children = (
@@ -241,6 +270,7 @@
 				2FEE63C21FBAD13B006E3C85 /* SwiftChatXIBDemoTests */,
 				2FEE63CD1FBAD13B006E3C85 /* SwiftChatXIBDemoUITests */,
 				2FEE63A91FBAD13A006E3C85 /* Products */,
+				04A7383026E8B3BB009423E1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -257,12 +287,14 @@
 		2FEE63AA1FBAD13A006E3C85 /* SwiftChatXIBDemo */ = {
 			isa = PBXGroup;
 			children = (
+				04A7382726E8A6D7009423E1 /* Extension */,
 				04A737D726E831F2009423E1 /* Libs */,
 				04A737CA26E762DA009423E1 /* View */,
 				04A737C926E76272009423E1 /* Model */,
 				2FEE63AB1FBAD13A006E3C85 /* AppDelegate.swift */,
 				2FEE63AD1FBAD13A006E3C85 /* ViewController.swift */,
 				04A737D326E7CC54009423E1 /* ChatListViewController.swift */,
+				04A7382E26E8B2FA009423E1 /* WebviewController.swift */,
 				2FEE63AF1FBAD13A006E3C85 /* Main.storyboard */,
 				2FEE63EE1FBAD2E1006E3C85 /* xib */,
 				2FEE63B51FBAD13A006E3C85 /* Assets.xcassets */,
@@ -454,11 +486,13 @@
 				04A737F226E831FB009423E1 /* JXPhotoBrowserDefaultPageIndicator.swift in Sources */,
 				04A7381426E841AA009423E1 /* Styles.swift in Sources */,
 				04A737EA26E831FB009423E1 /* JXPhotoBrowserZoomSupportedCell.swift in Sources */,
+				04A7382B26E8AB81009423E1 /* ConversationListCell.swift in Sources */,
 				04A737F826E8349D009423E1 /* MessageCell.swift in Sources */,
 				04A7381026E841AA009423E1 /* View.swift in Sources */,
 				04A737F126E831FB009423E1 /* JXPhotoBrowserView.swift in Sources */,
 				04A7381526E841AA009423E1 /* Stack.swift in Sources */,
 				04A737E926E831FB009423E1 /* JXPhotoBrowserNoneAnimator.swift in Sources */,
+				04A7382926E8A6E7009423E1 /* IVExtension.swift in Sources */,
 				04A737D626E7D43B009423E1 /* Conversation.swift in Sources */,
 				04A737F426E831FB009423E1 /* JXPhotoBrowserFadeAnimator.swift in Sources */,
 				04A737EC26E831FB009423E1 /* JXPhotoBrowserImageView.swift in Sources */,
@@ -466,6 +500,7 @@
 				04A737EB26E831FB009423E1 /* JXPhotoBrowserSmoothZoomAnimator.swift in Sources */,
 				04A7381126E841AA009423E1 /* AttStr.swift in Sources */,
 				04A7381726E841AA009423E1 /* Str.swift in Sources */,
+				04A7382626E8A1E3009423E1 /* User.swift in Sources */,
 				04A737E826E831FB009423E1 /* JXPhotoBrowserPageIndicator.swift in Sources */,
 				2FEE63AC1FBAD13A006E3C85 /* AppDelegate.swift in Sources */,
 				04A7381326E841AA009423E1 /* Alert.swift in Sources */,
@@ -475,6 +510,7 @@
 				04A737FA26E83A42009423E1 /* MessageContent.swift in Sources */,
 				04A7381D26E841AA009423E1 /* StaticTable.swift in Sources */,
 				04A7382126E841AA009423E1 /* Img.swift in Sources */,
+				04A7382F26E8B2FA009423E1 /* WebviewController.swift in Sources */,
 				2FEE63B41FBAD13A006E3C85 /* SwiftChatXIBDemo.xcdatamodeld in Sources */,
 				2FEE63F01FBAD527006E3C85 /* Message.swift in Sources */,
 			);

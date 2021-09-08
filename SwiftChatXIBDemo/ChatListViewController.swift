@@ -9,6 +9,9 @@
 import UIKit
 class ChatListViewController : UITableViewController{
     
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 70
+    }
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -16,15 +19,15 @@ class ChatListViewController : UITableViewController{
         return Conversation.convHis.count
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell : UITableViewCell? = tableView.dequeueReusableCell(withIdentifier: "cell")
+        let cell : ConversationListCell? = (tableView.dequeueReusableCell(withIdentifier: "cell") as! ConversationListCell)
         
-        if cell==nil {
-            cell = UITableViewCell.init(style: .default, reuseIdentifier: "cell")
-            
-        }
+      
         let conv : Conversation = Conversation.convHis[indexPath.row]
+        cell?.icon.image = UIImage.init(named: (conv.receiver?.icon)!)
+        cell?.name.text=conv.receiver?.name
+        cell?.title.text=conv.name
+        cell?.icon.setCornerImage()
         
-        cell?.textLabel?.text = conv.name
         return cell!
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -33,7 +36,9 @@ class ChatListViewController : UITableViewController{
         
         let vc : ViewController =  sb.instantiateViewController(withIdentifier: "ViewController") as! ViewController
         vc.hidesBottomBarWhenPushed=true
+      
         vc.conv = Conversation.convHis[indexPath.row]
+        Conversation.respConversation = vc.conv
         self.navigationController?.pushViewController(vc , animated: true)
         tableView.deselectRow(at: indexPath, animated: true)
     }

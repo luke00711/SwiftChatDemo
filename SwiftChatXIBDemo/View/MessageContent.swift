@@ -9,6 +9,8 @@
 import UIKit
 class MessageContent : UIView{
     let w = UIScreen.main.bounds.size.width
+    let userIconWidth : CGFloat = 45
+    
     lazy var bubble : UIImageView = {
         let lb : UIImageView = UIImageView.init(frame: CGRect.zero)
      
@@ -26,18 +28,36 @@ class MessageContent : UIView{
     
     lazy var im : UIImageView = {
         let lb : UIImageView = UIImageView.init(frame: CGRect.zero)
-      
+        
         lb.isHidden = true
         return lb
     }()
+    
+    lazy var userIcon : UIImageView = {
+        let lb : UIImageView = UIImageView.init(frame: CGRect.zero)
+        lb.backgroundColor = .red
+      
+        return lb
+    }()
+    
     
     var mg : Message? {
         willSet{
              switch newValue?.type {
                 
                 case .messageReceiver:do {
-                    self.frame=CGRect.init(x:0, y: 10, width: (newValue?.getWidth())!+10, height: (newValue?.getHeight())!-10)
+                    self.frame=CGRect.init(x:0, y: 0, width: (newValue?.getWidth())!+10+userIconWidth, height: (newValue?.getHeight())!-10)
                  
+                    bubble.frame=CGRect.init(x: userIconWidth+10, y: 10, width: self.frame.size.width, height: self.frame.size.height)
+                    
+                    userIcon.frame=CGRect.init(x: 5, y: 0, width: userIconWidth, height: userIconWidth)
+                   
+                    
+                    if let ic = Conversation.respConversation?.receiver?.icon {
+                        userIcon.image=UIImage.init(named: ic)
+                        userIcon.setCornerImage()
+                    }
+                   
                     let capInsetsIn = UIEdgeInsets(top: 17, left: 35, bottom: 17, right: 17)
                     let inImg = UIImage.init(named: "in")!.resizableImage(withCapInsets: capInsetsIn)
                     
@@ -49,9 +69,18 @@ class MessageContent : UIView{
                  }
                 break
                 case .messageSender:do{
-                    self.frame=CGRect.init(x: w-(newValue?.getWidth())!-10, y: 0, width: (newValue?.getWidth())!+10, height: (newValue?.getHeight())!-10)
+                    self.frame=CGRect.init(x: w-(newValue?.getWidth())!-10-userIconWidth, y: 0, width: (newValue?.getWidth())!+10+userIconWidth, height: (newValue?.getHeight())!-10)
                     
+                    bubble.frame=CGRect.init(x: 0, y: 10, width: self.frame.size.width-userIconWidth-10, height: self.frame.size.height)
                    
+                    userIcon.frame=CGRect.init(x: self.frame.size.width-userIconWidth-5, y: 0, width: userIconWidth, height: userIconWidth)
+                    
+                    if let ic =  User.instance.icon {
+                        userIcon.image=UIImage.init(named: ic)
+                        userIcon.setCornerImage()
+                    }
+                 
+                    
                     let capInsetsIn = UIEdgeInsets(top: 17, left: 17, bottom: 17, right:35)
                     let inImg = UIImage.init(named: "out")!.resizableImage(withCapInsets: capInsetsIn)
                     
@@ -90,12 +119,11 @@ class MessageContent : UIView{
     private func initView(){
         
         self.addSubview(bubble)
-        
-        
-        bubble.makeCons{(maker) in
-            maker.edge.equal(self as Any)
-        
-        }
+        self.addSubview(userIcon)
+//        bubble.makeCons{(maker) in
+//            maker.edge.equal(self as Any)
+//
+//        }
         
         bubble.addSubview(label)
         label.makeCons{(maker) in
