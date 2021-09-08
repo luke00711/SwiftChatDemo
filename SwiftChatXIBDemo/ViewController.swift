@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextViewDelegate {
     let w = UIScreen.main.bounds.size.width
     let h = UIScreen.main.bounds.size.height
@@ -26,7 +27,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBOutlet weak var sendView: UIView!
     @IBOutlet weak var sendTextView: UITextView!
     @IBOutlet weak var sendBtn: UIButton!
-    
+    private static let cellIdentifier = "cell"
     @IBOutlet weak var sendBotCt: NSLayoutConstraint!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,19 +47,47 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     //    tableView.rowHeight = UITableViewAutomaticDimension
         tableView.tableFooterView = UIView()
         let timeNib = UINib(nibName: "MsgTimeTableViewCell", bundle: nil)
-        let outNib = UINib(nibName: "MsgOutTableViewCell", bundle: nil)
-        let inNib = UINib(nibName: "MsgInTableViewCell", bundle: nil)
+//        let outNib = UINib(nibName: "MsgOutTableViewCell", bundle: nil)
+//        let inNib = UINib(nibName: "MsgInTableViewCell", bundle: nil)
         tableView.register(timeNib, forCellReuseIdentifier: "timeCell")
-        tableView.register(outNib, forCellReuseIdentifier: "outCell")
-        tableView.register(inNib, forCellReuseIdentifier: "inCell")
+//        tableView.register(outNib, forCellReuseIdentifier: "outCell")
+//        tableView.register(inNib, forCellReuseIdentifier: "inCell")
+        tableView.register(MessageCell.self, forCellReuseIdentifier: ViewController.cellIdentifier)
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideKB(tapGesture:)))
         tableView.addGestureRecognizer(tapGesture)
    // self.view.addSubview(tableView)
         sendTextView.layer.cornerRadius = 7.5
         NotificationCenter.default.addObserver(self, selector: #selector(keybordShow(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keybordHide(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        
+        
+        let notificationName = Notification.Name(rawValue: "DownloadImageNotification")
+                NotificationCenter.default.addObserver(self,
+                                            selector:#selector(downloadImage(notification:)),
+                                            name: notificationName, object: nil)
+        
     }
-
+    @objc func downloadImage(notification:NSNotification){
+        let msg : Message = notification.object as! Message
+        if msg.contentType == .picMessage {
+            let browser = JXPhotoBrowser()
+            // 浏览过程中实时获取数据总量
+            browser.numberOfItems = {
+                1
+            }
+            // 刷新Cell数据。本闭包将在Cell完成位置布局后调用。
+            browser.reloadCellAtIndex = { context in
+                let browserCell = context.cell as? JXPhotoBrowserImageCell
+              
+                browserCell?.imageView.image = msg.im ?? UIImage.init(named: "im")
+                
+            }
+            // 可指定打开时定位到哪一页
+          // browser.pageIndex = indexPath.item
+            // 展示
+            browser.show()
+        }
+    }
     @IBAction func sendPic(_ sender: Any) {
         
         let picker = UIImagePickerController()
@@ -84,9 +113,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         sendTextView.text=""
         self.view.endEditing(true)
         
-        tableView.reloadData()
-        
+       
          scrollToBottom()
+        
+        tableView.reloadData()
         
    
     }
@@ -151,7 +181,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return msgs[section].count + 1
     }
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+     
+        if indexPath.row>0 {
+            let msg = msgs[indexPath.section][indexPath.row - 1]
+            
+            
+        }
+    }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
             let timeCell = tableView.dequeueReusableCell(withIdentifier: "timeCell", for: indexPath) as! MsgTimeTableViewCell
@@ -160,17 +197,24 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             timeCell.timeLabel.text = formatter.string(from: msgs[indexPath.section][0].date as Date)
             return timeCell
         } else {
+            
             let msg = msgs[indexPath.section][indexPath.row - 1]
-            if msg.type == .messageReceiver {
-                let inCell = tableView.dequeueReusableCell(withIdentifier: "inCell", for: indexPath) as! MsgInTableViewCell
-                inCell.msg=msg
-                inCell.inLabel.text = msg.text
-                return inCell
-            } else {
-                let outCell = tableView.dequeueReusableCell(withIdentifier: "outCell", for: indexPath) as! MsgOutTableViewCell
-                outCell.outLabel.text = msg.text
-                return outCell
-            }
+            let cell : MessageCell = tableView.dequeueReusableCell(withIdentifier: ViewController.cellIdentifier) as! MessageCell
+            cell.msg=msg
+            
+            return cell
+            
+            
+//            if msg.type == .messageReceiver {
+//                let inCell = tableView.dequeueReusableCell(withIdentifier: "inCell", for: indexPath) as! MsgInTableViewCell
+//                inCell.msg=msg
+//                inCell.inLabel.text = msg.text
+//                return inCell
+//            } else {
+//                let outCell = tableView.dequeueReusableCell(withIdentifier: "outCell", for: indexPath) as! MsgOutTableViewCell
+//                outCell.outLabel.text = msg.text
+//                return outCell
+//            }
         }
     }
    

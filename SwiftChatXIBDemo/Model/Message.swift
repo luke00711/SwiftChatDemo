@@ -65,7 +65,7 @@ struct Message {
       let origin = NSStringDrawingOptions.usesLineFragmentOrigin
 
  
-     let rect = string.boundingRect(with:CGSize(width: 999, height:999),options: origin, attributes: [NSAttributedString.Key.font:font], context:nil)
+     let rect = string.boundingRect(with:CGSize(width: 200, height:999),options: origin, attributes: [NSAttributedString.Key.font:font], context:nil)
        return rect.width
 
     }
